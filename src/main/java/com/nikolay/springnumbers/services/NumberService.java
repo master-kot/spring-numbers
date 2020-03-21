@@ -1,24 +1,32 @@
 package com.nikolay.springnumbers.services;
 
+import com.nikolay.springnumbers.repositories.NumberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.LinkedHashSet;
 
 @Service
 public class NumberService {
 
-    private LinkedHashSet<String> numbers;
+    private NumberRepository numberRepository;
 
-    public LinkedHashSet<String> getNumbers () {
-        return numbers;
+    //Создаем ссылку на репозиторий номеров
+    @Autowired
+    public void setNumberRepository (NumberRepository numberRepository) {
+        this.numberRepository = numberRepository;
     }
 
-    @PostConstruct
-    public void init() {
-        numbers = new LinkedHashSet<>();
-        numbers.add("A000AAA116RUS");
-        numbers.add("B111BB116RUS");
-        numbers.add("E222EE116RUS");
+    //Создаем нужные методы взаимодействия с репозиторием номеров
+    public LinkedHashSet<String> getNumbers () {
+        return numberRepository.getNumbers();
+    }
+
+    public String addNextNumber() {
+        return numberRepository.addNextNumber();
+    }
+
+    public String addRandomNumber() {
+        return numberRepository.addRandomNumber();
     }
 }

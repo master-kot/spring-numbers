@@ -33,26 +33,21 @@ public class MainController {
     //Перехват GET-запроса вида: http://localhost:8080/number/next
     @GetMapping("/next")
     public String nextNumberPage(Model model) {
-        //CarNumber currentNumber = new CarNumber("A000AAA116RUS");
-        String currentNumber = "A000AAA116RUS";
-        model.addAttribute("number", currentNumber);
+        model.addAttribute("number", numberService.addNextNumber());
         return "currentNumber";
     }
 
     //Перехват GET-запроса вида: http://localhost:8080/number/random
     @GetMapping("/random")
     public String randomNumberPage(Model model) {
-        //CarNumber currentNumber = new CarNumber("B111BB116RUS");
-        String currentNumber = "B111BB116RUS";
-        model.addAttribute("number", currentNumber);
+        model.addAttribute("number", numberService.addRandomNumber());
         return "currentNumber";
     }
 
     //Перехват GET-запроса вида: http://localhost:8080/number/all
     @GetMapping("/all")
     public String allNumbersPage(Model model) {
-        LinkedHashSet<String> numbers = numberService.getNumbers();
-        model.addAttribute("numbers", numbers);
+        model.addAttribute("numbers", numberService.getNumbers());
         return "allNumbers";
     }
 }
