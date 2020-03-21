@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Главный контроллер приложения
@@ -47,5 +48,26 @@ public class MainController {
     public String allNumbersPage(Model model) {
         model.addAttribute("numbers", numberService.getNumbers());
         return "allNumbers";
+    }
+
+    //Перехват GET-запроса вида: http://localhost:8080/number/string/next
+    @GetMapping("/string/next")
+    @ResponseBody
+    public String nextNumber() {
+        return numberService.addNextNumber();
+    }
+
+    //Перехват GET-запроса вида: http://localhost:8080/number/string/random
+    @GetMapping("/string/random")
+    @ResponseBody
+    public String randomNumber() {
+        return numberService.addRandomNumber();
+    }
+
+    //Перехват GET-запроса вида: http://localhost:8080/number/string/all
+    @GetMapping("/string/all")
+    @ResponseBody
+    public String allNumbers() {
+        return numberService.getNumbers().toString();
     }
 }
