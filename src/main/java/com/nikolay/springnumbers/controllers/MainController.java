@@ -1,6 +1,8 @@
 package com.nikolay.springnumbers.controllers;
 
 import com.nikolay.springnumbers.entities.CarNumber;
+import com.nikolay.springnumbers.services.NumberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,15 @@ import java.util.LinkedHashSet;
  */
 @Controller
 public class MainController {
+
+    //сервис номеров
+    private NumberService numberService;
+
+    //инжектим сервис номеров
+    @Autowired
+    public void setNumberService(NumberService numberService) {
+        this.numberService = numberService;
+    }
 
     //Перехват GET-запроса вида: http://localhost:8080/number/index
     @GetMapping("/index")
@@ -40,11 +51,7 @@ public class MainController {
     //Перехват GET-запроса вида: http://localhost:8080/number/all
     @GetMapping("/all")
     public String allNumbersPage(Model model) {
-        LinkedHashSet<String> numbers = new LinkedHashSet<String>();
-        numbers.add("A000AAA116RUS");
-        numbers.add("B111BB116RUS");
-        numbers.add("E222EE116RUS");
-
+        LinkedHashSet<String> numbers = numberService.getNumbers();
         model.addAttribute("numbers", numbers);
         return "allNumbers";
     }
