@@ -15,8 +15,15 @@
 <body>
 
 <div class="container">
-    <h1>Страница текущего номера</h1>
-    <span th:text="${number.id}"></span>
+    <h1>Страница списка всех номеров</h1>
+    <span th:if="${numbers.size() == 0}">Номера еще не добавлены</span>
+    <table th:if="${numbers.size() > 0}" class="table table-hover">
+        <tbody>
+        <tr th:each="number : ${numbers}">
+            <td th:text="${number}"/>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
