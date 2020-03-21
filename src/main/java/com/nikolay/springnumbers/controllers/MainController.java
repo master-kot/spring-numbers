@@ -7,18 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.LinkedHashSet;
-
 /**
  * Главный контроллер приложения
  */
 @Controller
 public class MainController {
 
-    //сервис номеров
+    //Объявляем сервис номеров
     private NumberService numberService;
 
-    //инжектим сервис номеров
+    //Инжектим сервис номеров
     @Autowired
     public void setNumberService(NumberService numberService) {
         this.numberService = numberService;
@@ -34,14 +32,14 @@ public class MainController {
     @GetMapping("/next")
     public String nextNumberPage(Model model) {
         model.addAttribute("number", numberService.addNextNumber());
-        return "currentNumber";
+        return "nextNumber";
     }
 
     //Перехват GET-запроса вида: http://localhost:8080/number/random
     @GetMapping("/random")
     public String randomNumberPage(Model model) {
         model.addAttribute("number", numberService.addRandomNumber());
-        return "currentNumber";
+        return "randomNumber";
     }
 
     //Перехват GET-запроса вида: http://localhost:8080/number/all

@@ -15,7 +15,8 @@
 <body>
 
 <div class="container">
-    <h1>Страница текущего номера</h1>
+    <div th:replace="~{navigation :: navigation(Random)}" />
+    <h1>Добавнен случайный номер:</h1>
     <span th:text="${number}"></span>
 </div>
 </body>

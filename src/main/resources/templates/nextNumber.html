@@ -15,16 +15,9 @@
 <body>
 
 <div class="container">
-    <div th:replace="~{navigation :: navigation(All)}" />
-    <h1>Список всех добавленных номеров:</h1>
-    <span th:if="${numbers.size() == 0}">Номера еще не добавлены</span>
-    <table th:if="${numbers.size() > 0}" class="table table-hover">
-        <tbody>
-        <tr th:each="number : ${numbers}">
-            <td th:text="${number}"/>
-        </tr>
-        </tbody>
-    </table>
+    <div th:replace="~{navigation :: navigation(Next)}" />
+    <h1>Добавнен следующий по порядку номер:</h1>
+    <span th:text="${number}"></span>
 </div>
 </body>
 </html>
