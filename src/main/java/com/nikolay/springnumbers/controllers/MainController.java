@@ -1,9 +1,9 @@
-package com.nikolay.springnumbers;
+package com.nikolay.springnumbers.controllers;
 
+import com.nikolay.springnumbers.entities.CarNumber;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * Главный контроллер приложения
@@ -20,7 +20,7 @@ public class MainController {
     //Перехват GET-запроса вида: http://localhost:8080/number/next
     @GetMapping("/next")
     public String nextPage(Model model) {
-        String currentNumber = "A000AAA116RUS";
+        CarNumber currentNumber = new CarNumber("A000AAA116RUS");
         model.addAttribute("number", currentNumber);
         return "number";
     }
@@ -28,7 +28,7 @@ public class MainController {
     //Перехват GET-запроса вида: http://localhost:8080/number/random
     @GetMapping("/random")
     public String randomPage(Model model) {
-        String currentNumber = "A000AAA116RUS";
+        CarNumber currentNumber = new CarNumber("B111BB116RUS");
         model.addAttribute("number", currentNumber);
         return "number";
     }
