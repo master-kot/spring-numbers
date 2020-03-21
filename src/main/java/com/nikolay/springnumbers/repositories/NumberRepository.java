@@ -4,10 +4,9 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.LinkedHashSet;
-import java.util.Random;
 
 /**
- * Класс репозитория номеров, чтобы затем сохранять номера в БД.
+ * Класс репозитория номеров предназначен для дальнейшего их сохранения в БД.
  * Поскольку в задании не было указано хранить номера в базе данных,
  * то в текущей версии приложения данная опция не реализована.
  */
