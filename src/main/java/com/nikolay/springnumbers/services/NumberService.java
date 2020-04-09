@@ -12,13 +12,11 @@ public class NumberService {
 
     private NumberRepository numberRepository;
 
-    //Создаем ссылку на репозиторий номеров
     @Autowired
     public void setNumberRepository (NumberRepository numberRepository) {
         this.numberRepository = numberRepository;
     }
 
-    //Получаем список всех номеров из репозитория
     public LinkedHashSet<String> getNumbers () {
         return numberRepository.getNumbers();
     }
@@ -26,7 +24,7 @@ public class NumberService {
     private final Random randomizer = new Random();
 
     //Список возможных вариантов букв номера
-    private final char[] examplesOfChars = new char[] {'А', 'Е', 'Т', 'О', 'Р', 'Н', 'У', 'К', 'Х', 'С', 'В', 'М'};
+    private final char[] examplesOfChars = new char[] {'А', 'В', 'Е', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'У', 'Х'};
     private final String NUMBER_APPENDER_O = "0";
     private final String NUMBER_APPENDER_OO = "00";
     private final String NUMBER_APPENDER_REG = "116RUS";
