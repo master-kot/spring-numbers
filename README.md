@@ -22,8 +22,7 @@
 2. Приложение должно запускаться на сервере приложений [Tomcat](https://tomcat.apache.org/) 8 или выше.
 3. Для описания сборки приложения использовать любую из современных систем 
 автоматической сборки: [gradle](https://gradle.org/), [maven](https://maven.apache.org/) и др.
-4. Выполненное задание необходимо отправить на wannajavajob@i-novus.ru.
-5. Для решения задания рекомендуется использовать [spring boot](https://projects.spring.io/spring-boot/).
+4. Для решения задания рекомендуется использовать [spring boot](https://projects.spring.io/spring-boot/).
 
 ### Требования к API
 
